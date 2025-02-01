@@ -1,0 +1,17 @@
+The problem was that the parent element did not have a `display` property set that supported pseudo-elements.  Adding `display: block;` (or `display: inline-block;`, `display: flex;` etc., depending on your layout) to the parent element solved the issue.
+
+```css
+.parent {
+  display: block;
+}
+
+.parent::before {
+  content: "This text is now visible!";
+}
+```
+
+Other potential solutions include:
+
+* **Incorrect selector:** Double-check that your selector correctly targets the element.
+* **Missing content:** Ensure that the `content` property is set to a valid value (string, URL, etc.).
+* **CSS specificity:**  Check if other styles with higher specificity might be overriding your `content` property.
